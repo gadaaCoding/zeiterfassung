@@ -1,0 +1,1 @@
+{"c":["webpack"],"r":["pages/users/[usersId]"],"m":["./components/FetchUser.tsx","./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?absolutePagePath=%2FUsers%2Fshahadem%2FDesktop%2Fzeiterfassung%2Fpages%2Fusers%2F%5BusersId%5D.tsx&page=%2Fusers%2F%5BusersId%5D!","./node_modules/swr/dist/index.mjs","./pages/users/[usersId].tsx"]}
