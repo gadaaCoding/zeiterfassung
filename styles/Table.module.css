@@ -1,0 +1,89 @@
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  user-select: none;
+}
+
+.thead {
+  position: sticky;
+  z-index: 100;
+}
+
+.trHead {
+  background: rgb(245, 245, 245);
+}
+
+.th {
+  padding: 0.5rem;
+  color: rgb(33, 33, 33);
+  text-transform: capitalize;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.trBody {
+  background: rgb(255, 255, 255);
+}
+
+.td {
+  border: 1px solid rgb(245, 245, 245);
+  font-size: 0.9rem;
+  text-align: left;
+  padding-left: 0.5rem;
+  
+}
+.td:last-child{
+  display: inline;
+}
+
+.btn {
+  background: red;
+  color: rgb(245, 245, 245);;
+  border: none;
+  padding: 0.3rem;
+  border-radius: 0.2rem;
+  height: 30px;
+  cursor: pointer;
+  margin: 0.3rem;
+  font-size: 0.8rem;
+  font-weight: 900;
+  width: 80%;
+
+}
+.linkBtn {
+  width: 80%;
+  background: green;
+  color: rgb(245, 245, 245);
+  border: none;
+  padding: 0.3rem;
+  border-radius: 0.2rem;
+  height: 30px;
+  cursor: pointer;
+  margin: 0.3rem;
+  font-size: 0.8rem;
+  font-weight: 900;
+
+}
+
+
+.input {
+  width: 100%;
+  border: none;
+  padding: 0.5rem;
+  outline: none;
+}
+
+.th_btn {  
+  color: green;
+  border: none;
+  min-width: 65px;
+  padding: 0.3rem;
+  border-radius: 0.7rem;
+  min-height: 30px;
+  cursor: pointer;
+}

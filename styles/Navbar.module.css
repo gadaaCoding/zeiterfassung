@@ -1,0 +1,345 @@
+.section {
+  min-height: 100vh;
+  padding: 0 9%;
+  padding-top: 7.5rem;
+  padding-bottom: 2rem;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.8rem 3rem;
+  border-radius: 5rem;
+  background: var(--gradient);
+  font-size: 1.7rem;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  transition: all 0.3s linear;
+  text-transform: lowrercase;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.heading {
+  text-align: center;
+  /* background: var(--gradient); */
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-size: 3.5rem;
+  text-transform: lowrercase;
+  padding: 1rem;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #f1f1f1;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  /* border-bottom: 2px solid var(--purple); */
+  padding: 2rem 9%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  height: 3rem;
+}
+
+.header .logo {
+  font-size: 1.5rem;
+  color: var(--purple);
+}
+
+.header .logo .span {
+  color: var(--pink);
+}
+
+.header .navbar .anchor {
+  font-size: 1rem;
+  margin-left: 2rem;
+  color: var(--purple);
+}
+
+.header .navbar .anchor:hover {
+  color: var(--pink);
+  transition: 0.6s;
+}
+
+.header .input {
+  display: none;
+}
+
+.header .label {
+  font-size: 2rem;
+  color: var(--purple);
+  cursor: pointer;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0rem);
+  }
+  50% {
+    transform: translateY(-3.5rem);
+  }
+}
+
+.home .content h3 {
+  font-size: 5.5rem;
+  color: #333;
+}
+
+.home .content h3 span {
+  color: var(--pink);
+}
+
+.home .content p {
+  font-size: 1.7rem;
+  color: #666;
+  padding: 1rem 0;
+}
+
+.features .box-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.features .box-container .box {
+  flex: 1 1 30rem;
+  background: #fff;
+  border-radius: 0.5rem;
+  border: 0.1rem solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  margin: 1.5rem;
+  padding: 3rem 2rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  transition: 0.2s linear;
+}
+
+.features .box-container .box img {
+  height: 15rem;
+}
+
+.features .box-container .box h3 {
+  font-size: 2rem;
+  color: #333;
+  padding-top: 1rem;
+}
+
+.features .box-container .box p {
+  font-size: 1.3rem;
+  color: #666;
+  padding: 1rem 0;
+}
+
+
+.about .column {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.about .column .image {
+  flex: 1 1 40rem;
+}
+
+.about .column .image img {
+  width: 100%;
+}
+
+.about .column .content {
+  flex: 1 1 40rem;
+}
+
+.about .column .content h3 {
+  font-size: 3rem;
+  color: #666;
+}
+
+.about .column .content p {
+  font-size: 1.5rem;
+  color: #666;
+  padding: 1rem 0;
+}
+
+.about .column .content .buttons a:last-child {
+  margin-left: 2rem;
+}
+
+
+.Youtube {
+  text-align: center;
+  padding: 5rem 1rem;
+  background-size: cover;
+  background-position: center;
+}
+
+.Youtube h3 {
+  color: black;
+  font-size: 3rem;
+  text-transform: uppercase;
+}
+
+.Youtube p {
+  color: black;
+  font-size: 1.6rem;
+  margin: 2rem auto;
+  width: 70rem;
+}
+
+.Youtube form {
+  display: flex;
+  max-width: 70rem;
+  border: 0.2rem solid black;
+  padding: 0.5rem;
+  border-radius: 5rem;
+  margin: 2rem auto;
+  height: 5.5rem;
+}
+
+.Youtube form input[type="email"] {
+  padding: 0 2rem;
+  font-size: 1.7rem;
+  background: none;
+  width: 100%;
+  color: black;
+  text-transform: none;
+  background: none;
+}
+
+.Youtube form input[type="email"]::placeholder {
+  color: black;
+  text-transform: capitalize;
+}
+
+.Youtube form input[type="submit"] {
+  background: black;
+  width: 20rem;
+  font-size: 1.7rem;
+  border-radius: 5rem;
+  cursor: pointer;
+}
+
+.Youtube form input[type="submit"]:hover {
+  color: black;
+}
+
+.YoutubeChanalIcon{
+    border-radius: 95px;
+    margin-bottom: 20px;
+}
+
+/* media queries  */
+
+@media (max-width: 1200px) {
+  .column{
+    position: relative;
+    right: 200px;
+   text-align: center;
+  }
+  
+}
+
+@media (max-width: 991px) {
+  .section {
+    padding: 0 3%;
+    padding-top: 7.5rem;
+    padding-bottom: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .header .label {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  
+  .column{
+    position: relative;
+    right: 0px;
+   text-align: center;
+  }
+
+  .header .navbar {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    padding: 1rem 2rem;
+    border-top: 0.1rem solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    transform-origin: top;
+    transform: scaleY(0);
+    opacity: 0;
+    transition: 0.2s linear;
+  }
+
+  .header .navbar a {
+    display: block;
+    margin: 2rem 0;
+    font-size: 2rem;
+  }
+
+  .header .input:checked ~ .navbar {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+
+  .header .input:checked ~ .label::before {
+    content: "\f00d";
+  }
+
+  .home {
+    flex-flow: column-reverse;
+  }
+
+  .home .image img {
+    width: 100%;
+  }
+
+  .home .content h3 {
+    font-size: 3.6rem;
+  }
+
+  .home .content p {
+    font-size: 1.5rem;
+  }
+
+  .about {
+    background-position: right;
+  }
+
+  .newsletter p {
+    width: auto;
+  }
+}
+
