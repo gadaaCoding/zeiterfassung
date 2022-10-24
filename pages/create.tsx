@@ -4,8 +4,14 @@ import React, { SyntheticEvent, useState } from "react";
 import styles from "../styles/style.module.css";
 import navbar from "../styles/navbar.module.css";
 
-const Reset = () => {
-  const [userData, setUserData] = useState({ email: "", password: "" });
+const CreateUser = () => {
+  const [userData, setUserData] = useState({
+    name: "",
+    firstName: "",
+    email: "",
+    password: "",
+  });
+
   const router = useRouter();
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -13,22 +19,24 @@ const Reset = () => {
     setUserData({ ...userData, [name]: value });
   }
 
-  const handleSubmit = async (event: SyntheticEvent) => {
-    event.preventDefault();
-    const res = await fetch("http://localhost:3001/api/users/reset", {
-      method: "PUT",
+  const handleSubmit = async (e: SyntheticEvent) => {
+    e.preventDefault();
+    const res = await fetch("http://localhost:3001/api/users/user/register", {
+      method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ ...userData }),
     });
-    if (res.status === 200) {
-      router.push("/login");
+    if (res.status === 201) {
+      await router.push("/login");
+    } else {
+      console.log("User does not created");
     }
   };
 
   return (
     <>
       <header className={navbar.header}>
-        <Link href="/">
+        <Link href="/create">
           <a className={navbar.logo}>
             <span className={navbar.span}>STIFTUNG | </span>BATTENBERG
           </a>
@@ -37,13 +45,54 @@ const Reset = () => {
           <Link href="/login">
             <a className={navbar.anchor}>Anmelden</a>
           </Link>
-          <Link href="/create">
-            <a className={navbar.anchor}> Registrieren </a>
-          </Link>
         </nav>
       </header>
       <form className={styles.formContainer} onSubmit={handleSubmit}>
-        <h1 className={styles.formh1}>Passwort zurücksetzen</h1>
+        <h1 className={styles.formh1}>REGISTRIEREN</h1>
+
+        <div className={[styles.editorField, styles.fieldTextbox].join("")}>
+          <div className={styles.labelContainer}>
+            <label className={styles.fieldLabel}>Name</label>
+          </div>
+
+          <div className={styles.fieldContainer}>
+            <input
+              value={userData.name}
+              type="text"
+              className={styles.fieldInput}
+              name="name"
+              id="name"
+              placeholder="Name eingeben"
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <span className={styles.fieldBottom}></span>
+          <div className={styles.fieldNoise}></div>
+        </div>
+
+        <div className={[styles.editorField, styles.fieldTextbox].join("")}>
+          <div className={styles.labelContainer}>
+            <label className={styles.fieldLabel}>Vorname</label>
+          </div>
+          <div className={styles.fieldContainer}>
+            <input
+              value={userData.firstName}
+              type="text"
+              className={styles.fieldInput}
+              id="firstName"
+              name="firstName"
+              placeholder="Vorname eingeben"
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <span className={styles.fieldBottom}></span>
+          <div className={styles.fieldNoise}></div>
+        </div>
+
+       
+
         <div className={[styles.editorField, styles.fieldTextbox].join("")}>
           <div className={styles.labelContainer}>
             <label className={styles.fieldLabel}>Email</label>
@@ -55,7 +104,7 @@ const Reset = () => {
               className={styles.fieldInput}
               id="email"
               name="email"
-              placeholder="Enter your email"
+              placeholder="Email eingeben"
               onChange={handleChange}
               required
             />
@@ -75,6 +124,7 @@ const Reset = () => {
               className={styles.fieldInput}
               name="password"
               id="password"
+              autoComplete="off"
               placeholder="********"
               onChange={handleChange}
               required
@@ -93,4 +143,4 @@ const Reset = () => {
   );
 };
 
-export default Reset;
+export default CreateUser

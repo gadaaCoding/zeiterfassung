@@ -1,7 +1,8 @@
+import React from "react";
 import useSWR from "swr";
 
 const fetchAbsence = async (absenceId: string) => {
-  const res = await fetch(`http://localhost:8080/absences/${absenceId}`, {
+  const res = await fetch(`http://localhost:3001/api/absences/admin/${absenceId}`, {
     credentials: "include",
   });
   return await res.json();
@@ -12,7 +13,7 @@ export default function AbsenceDetails({ absenceId }: any) {
 
   if (error) return <div>failed to load</div>;
   if (!data) return <div>loading...</div>;
-  const fullName = `${data.firstName} ${data.lastName}`;
+ 
 
   return (
     <div
@@ -23,11 +24,12 @@ export default function AbsenceDetails({ absenceId }: any) {
         flexDirection: "column",
       }}
     >
-      <h3>{fullName}</h3>
-      <h3>{data.absenceFrom}</h3>
-      <h3>{data.absenceTo}</h3>
-      <h3>{data.reason}</h3>
-      <h3>{data.remarks}</h3>
+      <h3>Name: {data.name}</h3>
+      <h3>Vame: {data.firstName}</h3>
+      <h3>Absence From:{data.fromDate}</h3>
+      <h3>Absence To: {data.toDate}</h3>
+      <h3>Absence Reason: {data.reason}</h3>
+      <h3>Reamarks: {data.remarks}</h3>
     </div>
   );
 }

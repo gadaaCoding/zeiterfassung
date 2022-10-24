@@ -1,10 +1,11 @@
+import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { SyntheticEvent, useState } from "react";
 import styles from "../styles/style.module.css";
+import navbar from "../styles/navbar.module.css";
 
 const Forget = () => {
   const [userData, setUserData] = useState({ email: ""});
-  const [message, setMessage] = useState("");
   const router = useRouter();
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -14,25 +15,32 @@ const Forget = () => {
 
   const handleSubmit = async (event: SyntheticEvent) => {
     event.preventDefault();
-    const res = await fetch("http://localhost:8080/users/forgot", {
+    await fetch("http://localhost:3001/api/users/forgot", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({...userData} ),
     });
-    const data = await res.json();
-
-    if(data.message){
-      setMessage(data.message);
-      await router.push("/login");
-      console.log(data)
-    } else {
-      setMessage(data.error);
-    }
+    router.push("/login");
   };
   return (
-    <div>
+    <>
+       <header className={navbar.header}>
+        <Link href="/">
+          <a className={navbar.logo}>
+            <span className={navbar.span}>STIFTUNG | </span>BATTENBERG
+          </a>
+        </Link>
+        <nav className={navbar.navbar}>
+          <Link href="/login">
+            <a className={navbar.anchor}>Anmelden</a>
+          </Link>
+          <Link href="/create">
+            <a className={navbar.anchor}> Registrieren </a>
+          </Link>
+        </nav>
+      </header>
       <form className={styles.formContainer} onSubmit={handleSubmit}>
-        <h1 className={styles.formh1}>Login to your Account</h1>
+        <h1 className={styles.formh1}>Passwort zurücksetzen</h1>
         <div className={[styles.editorField, styles.fieldTextbox].join("")}>
           <div className={styles.labelContainer}>
             <label className={styles.fieldLabel}>Email</label>
@@ -44,7 +52,7 @@ const Forget = () => {
               className={styles.fieldInput}
               id="email"
               name="email"
-              placeholder="Enter your email"
+              placeholder="Email Eingeben"
               onChange={handleChange}
               required
             />
@@ -54,11 +62,11 @@ const Forget = () => {
         </div>
         <div className={[styles.btn, styles.btnPrimary].join("")}>
           <button type="submit" className={styles.btnContainer}>
-            Login
+            Absenden
           </button>
         </div>
       </form>
-    </div>
+    </>
   );
 };
 

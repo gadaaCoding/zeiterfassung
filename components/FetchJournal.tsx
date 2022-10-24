@@ -2,7 +2,7 @@ import React from "react";
 import useSWR from "swr";
 
 const fetchJournal = async (journalId: string) => {
-  const res = await fetch(`http://localhost:8080/journals/${journalId}`, {
+  const res = await fetch(`http://localhost:3001/api/journals/admin/${journalId}`, {
     credentials: "include",
   });
   return await res.json();
@@ -13,7 +13,6 @@ export default function JournalDetails({ journalId }: any) {
 
   if (error) return <div>failed to load</div>;
   if (!data) return <div>loading...</div>;
-  const fullName = `${data.firstName} ${data.lastName}`;
 
   return (
     <div
@@ -24,13 +23,13 @@ export default function JournalDetails({ journalId }: any) {
         flexDirection: "column",
       }}
     >
-      <h3>{fullName}</h3>
-      <h3>{data.weekday}</h3>
-      <h3>{data.journalFrom}</h3>
-      <h3>{data.journalTo}</h3>
-      <h3>{data.activity}</h3>
-      <h3>{data.evaluation}</h3>
-      <h3>{data.remarks}</h3>
+      <h3>Name: {data.name}</h3>
+      <h3>Vorname: {data.firstName}</h3>
+      <h3>Tag der Woche: {data.dayOfWeek}</h3>
+      <h3>Datum Von: {data.fromDate}</h3>
+      <h3>Datum Bis: {data.toDate}</h3>
+      <h3>Tätigkeiten: {data.activities}</h3>
+      <h3>Bemerkungen: {data.remarks}</h3>
     </div>
   );
 }

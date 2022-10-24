@@ -6,6 +6,7 @@
   border-radius: 0.5rem;
   overflow: hidden;
   user-select: none;
+  min-width: 700px;
 }
 
 .thead {

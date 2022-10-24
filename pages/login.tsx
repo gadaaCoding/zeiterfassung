@@ -1,13 +1,11 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { SyntheticEvent, useEffect, useState } from "react";
-import Layout from "../layout/Layout";
+import React, { SyntheticEvent, useState } from "react";
 import styles from "../styles/style.module.css";
+import navbar from "../styles/navbar.module.css";
 
 const Login = () => {
   const [userData, setUserData] = useState({ email: "", password: "" });
-  const [auth, setAuth] = useState(false);
-  const [_, setMessage] = useState("");
   const router = useRouter();
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -17,39 +15,32 @@ const Login = () => {
 
   const handleSubmit = async (event: SyntheticEvent) => {
     event.preventDefault();
-    await fetch("http://localhost:8080/users/login", {
+    await fetch("http://localhost:3001/api/users/login", {
       method: "POST",
       credentials: "include",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ ...userData }),
     });
-      router.push("/");
+    router.push("/");
   };
-  useEffect(() => {
-    (async () => {
-      try {
-        const res = await fetch("http://localhost:8080/users", {
-          credentials: "include",
-          });
-        const data = await res.json();
-        const firstElement = data[0];
-        const firstName = firstElement.firstName;
-        setMessage(`Hello ${firstName}`);
-        setAuth(true);
-        router.push("/");
-      } catch (error) {
-        setMessage("You are not logged in");
-        setAuth(false);
-        router.push("/login");
-      }
-    })();
-  }, []);
 
   return (
-    <Layout auth={auth}>
+    <>
+      <header className={navbar.header}>
+        <Link href="/login">
+          <a className={navbar.logo}>
+            <span className={styles.span}>STIFTUNG | </span>BATTENBERG
+          </a>
+        </Link>
+        <nav className={navbar.navbar}>
+          <Link href="/create">
+            <a className={navbar.anchor}> Registrieren </a>
+          </Link>
+        </nav>
+      </header>
       <form className={styles.formContainer} onSubmit={handleSubmit}>
-        <h1 className={styles.formh1}>Login to your Account</h1>
-        <div className={[styles.editorField, styles.fieldTextbox].join("")}>
+        <h1 className={styles.formh1}>ANMELDEN</h1>
+        <div className={styles.editorField}>
           <div className={styles.labelContainer}>
             <label className={styles.fieldLabel}>Email</label>
           </div>
@@ -60,7 +51,7 @@ const Login = () => {
               className={styles.fieldInput}
               id="email"
               name="email"
-              placeholder="Enter your email"
+              placeholder="Email Eingeben"
               onChange={handleChange}
               required
             />
@@ -69,9 +60,9 @@ const Login = () => {
           <div className={styles.fieldNoise}></div>
         </div>
 
-        <div className={[styles.editorField, styles.fieldTextbox].join("")}>
+        <div className={styles.editorField}>
           <div className={styles.labelContainer}>
-            <label className={styles.fieldLabel}>Password</label>
+            <label className={styles.fieldLabel}>Passwort</label>
           </div>
           <div className={styles.fieldContainer}>
             <input
@@ -88,26 +79,17 @@ const Login = () => {
           <span className={styles.fieldBottom}></span>
           <div className={styles.fieldNoise}></div>
         </div>
-
         <h4 className={styles.formh2}>
-          have no account?
-          <Link href="/register">
-            <a className={styles.anchor}> Regsiter</a>
-          </Link>
-        </h4>
-        <h4 className={styles.formh2}>
-          forgot Password?
+          Passwort vergessen?
           <Link href="/forgot">
-            <a className={styles.anchor}> Reset</a>
+            <a className={styles.anchor}> Zurücksetzen</a>
           </Link>
         </h4>
-        <div className={[styles.btn, styles.btnPrimary].join("")}>
-          <button type="submit" className={styles.btnContainer}>
-            Login
-          </button>
+        <div className={`${styles.btn} ${styles.btnPrimary}`}>
+          <button type="submit" className={styles.btnContainer}> ANMELDEN </button>
         </div>
       </form>
-    </Layout>
+    </>
   );
 };
 

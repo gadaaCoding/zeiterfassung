@@ -1,7 +1,7 @@
 import useSWR from "swr";
 
 const fetchUser = async (userId: string) => {
-  const res = await fetch(`http://localhost:8080/users/${userId}`, {
+  const res = await fetch(`http://localhost:3001/api/users/admin/${userId}`, {
     credentials: "include",
   });
   return await res.json();
@@ -22,10 +22,10 @@ export default function UserDetails({ usersId }: any) {
         flexDirection: "column",
       }}
     >
-      <h3>{data.firstName}</h3>
-      <h3>{data.lastName}</h3>
-      <h3>{data.email}</h3>
-      <h3>{data.roles}</h3>
+      <h3>Name: {data.name}</h3>
+      <h3>Vorname: {data.firstName}</h3>
+      <h3>Email: {data.email}</h3>
+      <h3>Benutzerrolle: {data.roles}</h3>
     </div>
   );
 }

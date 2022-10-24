@@ -5,7 +5,7 @@ import styles from "../styles/style.module.css";
 
 
 const fetchUser = async (userId: string) => {
-    const res = await fetch(`http://localhost:8080/users/${userId}`, {
+    const res = await fetch(`http://localhost:3001/api/users/admin/${userId}`, {
         method: "PATCH",
         credentials: "include",
     });
@@ -31,7 +31,7 @@ export default function UpdateUsers({updateId}: any) {
 
     const handleSubmit = async (e: SyntheticEvent) => {
         e.preventDefault();
-        await fetch(`http://localhost:8080/users/${updateId}`, {
+        await fetch(`http://localhost:3001/api/users/${updateId}`, {
             method: "PATCH",
             credentials: "include",
             headers: { "Content-Type": "application/json" },
