@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React, { SyntheticEvent, useState } from "react";
 import useSWR from "swr";
-import styles from "../styles/style.module.css";
+import styles from "./../styles/Style.module.css";
 
 
 const fetchUser = async (userId: string) => {

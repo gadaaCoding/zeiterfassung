@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { SyntheticEvent, useState } from "react";
-import styles from "./../styles/style.module.css";
-import navbar from "./../styles/navbar.module.css";
+//import styeles using absolute path
+
+import styles from "./../styles/Style.module.css";
+import navbar from "./../styles/Navbar.module.css";
 
 const Reset = () => {
   const [userData, setUserData] = useState({ email: "", password: "" });
