@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import JournalDetails from "../../../components/FetchJournal";
-import styles from "../../../styles/style.module.css";
-import navbar from "../../../styles/navbar.module.css";
+import JournalDetails from "./../../../components/FetchJournal";
+import styles from "./../../../styles/style.module.css";
+import navbar from "./../../../styles/navbar.module.css";
 
 const JouranlDetail = () => {
   const router = useRouter();

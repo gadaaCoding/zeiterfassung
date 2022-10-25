@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import styles from "../../styles/navbar.module.css";
+import styles from "./../../styles/navbar.module.css";
 
 export default function Admin() {
   const [message, setMessage] = useState("");

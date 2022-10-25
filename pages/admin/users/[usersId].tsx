@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import UserDetails from "../../../components/FetchUser";
-import styles from "../../../styles/style.module.css";
-import navbar from "../../../styles/navbar.module.css";
+import UserDetails from "./../../../components/FetchUser";
+import styles from "./../../../styles/style.module.css";
+import navbar from "./../../../styles/navbar.module.css";
 
 const UserDetail = () => {
   const router = useRouter();

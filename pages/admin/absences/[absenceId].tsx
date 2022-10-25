@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import AbsenceDetails from "../../../components/FetchAbsence";
-import styles from "../../../styles/style.module.css";
-import navbar from "../../../styles/navbar.module.css";
+import AbsenceDetails from "./../../../components/FetchAbsence";
+import styles from "./../../../styles/style.module.css";
+import navbar from "./../../../styles/navbar.module.css";
 
 
 const AbsenceDetail = () => {

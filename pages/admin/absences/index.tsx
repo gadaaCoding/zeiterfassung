@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import styles from "../../../styles/table.module.css";
-import navbar from "../../../styles/navbar.module.css";
+import styles from "./../../../styles/table.module.css";
+import navbar from "./../../../styles/navbar.module.css";
 
 
 const Absences = () => {

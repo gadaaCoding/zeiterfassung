@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { SyntheticEvent, useState } from "react";
-import styles from "../styles/style.module.css";
-import navbar from "../styles/navbar.module.css";
+import styles from "./../styles/style.module.css";
+import navbar from "./../styles/navbar.module.css";
 
 const CreateUser = () => {
   const [userData, setUserData] = useState({
