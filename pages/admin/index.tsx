@@ -15,29 +15,39 @@ export default function Admin() {
     router.push("/");
   }
   useEffect(() => {
+    const abortController = new AbortController();
     (async () => {
       try {
         const res = await fetch("http://localhost:3001/api/users/user", {
           credentials: "include",
         });
         const user = await res.json();
-        if (!user || res.status === 401) {
-          router.push("/login");
 
+        //if user is found don't redirect to login page
+        if (user.id && res.status === 200) {
+          !router.push("/login");
+        } else if (user.roles === "user") {
+          router.push("/");
+        } else if (user.roles === "admin") {
+          router.push("/admin");
         }
 
+       
         if (user.roles === "admin") {
           router.push("/admin");
           setMessage(`Hallo, Herr ${user.name}`);
-        }
-
-        if (user.roles === "user") {
+        } else if (user.roles === "user") {
           router.push("/");
+        } else {
+          router.push("/login");
         }
       } catch (error) {
         router.push("/login");
       }
     })();
+    return () => {
+      abortController.abort();
+    }
   }, []);
 
   return (

@@ -15,21 +15,14 @@ export default function JournalDetails({ journalId }: any) {
   if (!data) return <div>loading...</div>;
 
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        flexDirection: "column",
-      }}
-    >
-      <h3>Name: {data.name}</h3>
-      <h3>Vorname: {data.firstName}</h3>
-      <h3>Tag der Woche: {data.dayOfWeek}</h3>
-      <h3>Datum Von: {data.fromDate}</h3>
-      <h3>Datum Bis: {data.toDate}</h3>
-      <h3>Tätigkeiten: {data.activities}</h3>
-      <h3>Bemerkungen: {data.remarks}</h3>
+    <div className="detailsWapper">
+      <h3>Name: <span className="details">{data.name}</span></h3>
+      <h3>Vorname: <span className="details">{data.firstName}</span></h3>
+      <h3>Tag der Woche: <span className="details">{data.dayOfWeek}</span></h3>
+      <h3>Datum Von: <span className="details">{data.fromDate}</span></h3>
+      <h3>Datum Bis: <span className="details">{data.toDate}</span></h3>
+      <h3>Tätigkeiten: <span className="details">{data.activities}</span></h3>
+      <h3>Bemerkungen: <span className="details">{data.remarks}</span></h3>
     </div>
   );
 }

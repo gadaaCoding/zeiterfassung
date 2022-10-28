@@ -16,26 +16,28 @@ export default function Home() {
   }
 
   useEffect(() => {
+    const abortController = new AbortController();
     (async () => {
       try {
         const res = await fetch("http://localhost:3001/api/users/user", {
           credentials: "include",
         });
         const user = await res.json();
-        if (!user || res.status === 401) {
-          router.push("/login");
-        }
-
-        if (user.roles === "admin") {
-          router.push("/admin");
-        } else if (user.roles === "user") {
-          router.push("/");
+        if (user.roles === "user") {
           setMessage(`Hallo, Herr ${user.name}`);
+          router.push("/");
+        } else if (user.roles === "admin") {
+          router.push("/admin");
+        } else {
+          router.push("/login");
         }
       } catch (error) {
         router.push("/login");
       }
     })();
+    return () => {
+      abortController.abort();
+    }
   }, []);
 
   return (

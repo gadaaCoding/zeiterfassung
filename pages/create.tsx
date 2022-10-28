@@ -29,6 +29,13 @@ const CreateUser = () => {
     if (res.status === 201) {
       await router.push("/login");
     } else {
+     //create regex to check if password is strong enough
+     const strongPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;//
+      if (userData.password.match(strongPassword)) {
+        console.log("Password is strong enough");
+      } else {
+        alert("Password must contain at least 8 characters, one uppercase letter, one lowercase letter and one number");
+      }
       console.log("User does not created");
     }
   };

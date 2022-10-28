@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { SyntheticEvent, useState } from "react";
+import React, { SyntheticEvent, useEffect, useState } from "react";
 import styles from "./../styles/Style.module.css";
 import navbar from "./../styles/Navbar.module.css";
 
@@ -21,8 +21,32 @@ const Login = () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ ...userData }),
     });
-    router.push("/");
+    router.push("/") // Redirect to home page
+
   };
+
+  //this particular piece of code will be transferred to another file
+  useEffect(() => {
+    const abortController = new AbortController();
+    (async () => {
+        const res = await fetch("http://localhost:3001/api/users/user", {
+          credentials: "include",
+        });
+        const user = await res.json();
+        if (user.roles === "admin") {
+          router.push("/admin");
+        } else if (user.roles === "user") {
+          router.push("/");
+        }
+        else {
+          router.push("/login");
+        }
+
+    })();
+    return () => {
+      abortController.abort();
+    }
+  }, []);
 
   return (
     <>

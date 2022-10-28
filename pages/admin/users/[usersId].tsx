@@ -18,16 +18,17 @@ const UserDetail = () => {
         </Link>
         <nav className={navbar.navbar}>
           <Link href="/admin/absences">
-            <a className={navbar.anchor}> Absences </a>
+            <a className={navbar.anchor}> Absenzen </a>
           </Link>
           <Link href="/admin/journals">
             <a className={navbar.anchor}> Journals </a>
           </Link>
           <Link href="/admin/users">
-            <a className={navbar.anchor}> Users </a>
+            <a className={navbar.anchor}> Benutzer </a>
           </Link>
           <Link href="/admin/register">
-            <a className={navbar.anchor}> Create User </a>
+            <a className={navbar.anchor}> Erstellen </a>
+            
           </Link>
         </nav>
       </header>
@@ -35,7 +36,7 @@ const UserDetail = () => {
         <h1>User's Profile</h1>
         <UserDetails usersId={usersId} />
         <Link href="/admin/users">
-          <a className={styles.btnContainer}>Back</a>
+          <a className={styles.btnContainer}>Zurück</a>
         </Link>
       </div>
     </div>

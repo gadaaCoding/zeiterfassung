@@ -163,3 +163,16 @@ body {
   z-index: 2;
   height: 100px;
 }
+
+.details {
+  color: #f83292;
+  font-size: 20px;
+  padding-left: 10px;
+}
+
+.detailsWapper{ 
+  display: "flex";
+  justify-content: "center";
+  align-items: "center";
+  flex-direction: "column";
+}

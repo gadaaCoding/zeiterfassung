@@ -147,7 +147,7 @@ const Register = () => {
               name="password"
               id="password"
               autoComplete="off"
-              placeholder="******** e"
+              placeholder="********"
               onChange={handleChange}
               required
             />

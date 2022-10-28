@@ -24,12 +24,12 @@ export default function AbsenceDetails({ absenceId }: any) {
         flexDirection: "column",
       }}
     >
-      <h3>Name: {data.name}</h3>
-      <h3>Vame: {data.firstName}</h3>
-      <h3>Absence From:{data.fromDate}</h3>
-      <h3>Absence To: {data.toDate}</h3>
-      <h3>Absence Reason: {data.reason}</h3>
-      <h3>Reamarks: {data.remarks}</h3>
+      <h3>Name: <span className="details">{data.name}</span></h3>
+      <h3>Vame: <span className="details">{data.firstName}</span></h3>
+      <h3>Absence From:<span className="details">{data.fromDate}</span></h3>
+      <h3>Absence To: <span className="details">{data.toDate}</span></h3>
+      <h3>Absence Reason: <span className="details">{data.reason}</span></h3>
+      <h3>Reamarks: <span className="details">{data.remarks}</span></h3>
     </div>
   );
 }

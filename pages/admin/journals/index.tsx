@@ -85,14 +85,14 @@ const Journals = () => {
                   <td className={styles.td}>{journal.remarks}</td>
                   <td className={styles.td}>
                     <Link href={`/admin/journals/${journal.id}`} key={journal.id}>
-                      <a className={styles.linkBtn}>Detailansicht</a>
+                      <a className={styles.linkBtn}>Sicht</a>
                     </Link>
                   </td>
                   <td className={styles.td}>
                     <button className={styles.btn}
                       onClick={() => deleteJournal(journal.id)}
                     >
-                      Delete
+                      Löschen
                     </button>
                   </td>
                 </tr>

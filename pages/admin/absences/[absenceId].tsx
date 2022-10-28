@@ -19,16 +19,16 @@ const AbsenceDetail = () => {
         </Link>
         <nav className={navbar.navbar}>
           <Link href="/admin/absences">
-            <a className={navbar.anchor}> Absences </a>
+            <a className={navbar.anchor}> Absenzen </a>
           </Link>
           <Link href="/admin/journals">
             <a className={navbar.anchor}> Journals </a>
           </Link>
           <Link href="/admin/users">
-            <a className={navbar.anchor}> Users </a>
+            <a className={navbar.anchor}> Benutzer </a>
           </Link>
           <Link href="/admin/register">
-            <a className={navbar.anchor}> Create User </a>
+            <a className={navbar.anchor}> Erstellen </a>
           </Link>
         </nav>
       </header>
@@ -36,7 +36,7 @@ const AbsenceDetail = () => {
         <h1>Absence Details</h1>
         <AbsenceDetails absenceId={absenceId}/>
         <Link href="/admin/absences">
-        <a className={styles.btnContainer}>Back</a>
+        <a className={styles.btnContainer}>Zurück</a>
       </Link>
       </div>
     </div>
